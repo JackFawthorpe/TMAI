@@ -9,5 +9,5 @@ open terminal in this directory and run ```npm install```<br>
 
 
 ## Running the Application
-Go to ./TMAI/frontend and run ```npm run deploy```<br>
+Go to ./TMAI/frontend and run ```npm run dev```<br>
 go to ./TMAI/backend and run ```./gradlew bootRun```
