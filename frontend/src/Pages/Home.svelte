@@ -1,5 +1,5 @@
-<script>
-
+<script lang="ts">
+    const exampleString: string = "Lorem Dipsum Colore";
 </script>
 
 <div>
@@ -9,7 +9,7 @@
                 <button class="bg-indigo-800 text-green-50 py-1 px-3 text-center rounded">
                     Button
                 </button>
-                <h1 class="text-indigo-800 font-bold text-5xl">Lorem Dipsum Colore</h1>
+                <h1 class="text-indigo-800 font-bold text-5xl">{exampleString}</h1>
             </div>
         </div>
     </div>
