@@ -1,4 +1,4 @@
-name: Gradle
+name: Backend Testing
 on: push
 jobs:
   gradle:
@@ -14,4 +14,4 @@ jobs:
       uses: gradle/gradle-build-action@v2
     
     - name: Execute Gradle build
-      run: ./gradlew test
+      run: ./gradlew test -p ./backend
