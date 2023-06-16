@@ -1,3 +1,4 @@
 interface Card {
-    title: string
+    title: string,
+    cost: number
 }
