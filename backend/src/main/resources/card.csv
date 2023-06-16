@@ -1,138 +1,138 @@
-Title,Cost
-Colonizer Training Camp,8
-Deep Well Heating,13
-Cloud Seeding,11
-Search For Life,3
-Martian Rails,13
-Capital,26
-Asteroid,14
-Comet,21
-Big Asteroid,27
-Water Import From Europa,25
-Equatorial Magnetizer,11
-Domed Crater,24
-Noctis City,18
-Methane From Titan,28
-Imported Hydrogen,16
-Research Outpost,18
-Phobos Space Haven,25
-Black Polar Dust,15
-Arctic Algae,12
-Predators,14
-Eos Chasma National Park,16
-Cupola City,16
-Lunar Bean,13
-Optimal Aerobraking,7
-Underground City,18
-Regolith Eaters,13
-Ghg Producing Bacteria,8
-Ants,9
-Release of inert gas,14
-Nitrogen-Rich Asteroid,31
-Rover Construction,8
-Deimos Down,31
-Asteroid Mining,30
-Food Factory,12
-Archaebacteria,6
-Carbonate Processing,6
-Natural Preserve,9
-Nuclear Power,10
-Algae,10
-Adapted Lichen,9
-Fish,9
-Lake Marineris,18
-Small Animals,6
-Kelp Farming,17
-Beam from a Thorium Asteroid,32
-Mangrove,12
-Trees,13
-Mining Expedition,12
-Mining Rights,9
-Birds,10
-Towing a comet,23
-Space Mirrors,3
-Solar wind power,11
-Ice asteroid,23
-Giant Ice asteroid,36
-Ganymede Colony,20
-Giant Space mirror,17
-Grass,11
-Heater,6
-Peroxide Power,7
-Bushes,10
-Greenhouses,6
-Nuclear Zone,10
-Fueled Generators,1
-Ironworks,11
-Power Grid,18
-Steelworks,15
-Ore Processor,13
-Open City,23
-Solar Power,11
-Breathing Filters,11
-Artificial Photosynthesis,12
-Artificial Lake,15
-Geothermal Power,11
-Farming,16
-Dust Seals,2
-Urbanized Area,10
-Moss,4
-Ghg Factories,11
-Subterranean Reservoir,11
-Ecological Zone,12
-Zeppelins,13
-Worms,8
-Decomposers,5
-Fusion Power,14
-Symbiotic Fungus,4
-Extreme-Cold Fungus,13
-Advanced ecosystems,11
-Great Dam,12
-Strip Mine,25
-Wave Power,8
-Lava flows,18
-Power plant,4
-Mohole Area,20
-Large Convoy,36
-Tectonic Stress Power,18
-Nitrophilic Moss,8
-Herbivores,12
-Insects,9
-Insulation,2
-Adaption Technology,12
-Designed Microorganisms,16
-Nitrite Reducing Bacteria,11
-Industrial Mircobes,12
-Lichen,7
-Convoy from europa,15
-Imported GHG,7
-Imported Nitrogen,23
-Micro-mills,3
-Magnetic Field Generators,20
-Shuttles,10
-Import of advanced GHG,9
-Windmills,6
-Tundra Farming,16
-Aerobraked Ammonia Asteroid,26
-Magnetic Field Dome,5
-Pets,10
-Protected Valley,23
-Noctis Farming,10
-Water Splitting plant,12
-Heat Trappers,6
-Soil Factory,9
-Ice Cap Melting,5
-Biomass Combustors,4
-Livestock,13
-Aquifer Pumping,18
-Flooding,7
-Energy Saving,15
-Local Heat Trapping,1
-Permafrost Extraction,8
-Plantation,15
-Immigration Shuttles,31
-Immigrant City,13
-Underground Detonations,6
-Soletta,35
-Rad-Chem Factory,8
-Special Design,4
+Title,Cost,Building,Space,Science,Plant,Microbe,Animal,Power,Jovian,Earth,City,Event
+Colonizer Training Camp,8,1,,,,,,,1,,,
+Deep Well Heating,13,1,,,,,,1,,,,
+Cloud Seeding,11,,,,,,,,,,,
+Search For Life,3,,,1,,,,,,,,
+Martian Rails,13,1,,,,,,,,,,
+Capital,26,1,,,,,,,,,1,
+Asteroid,14,,1,,,,,,,,,1
+Comet,21,,1,,,,,,,,,1
+Big Asteroid,27,,1,,,,,,,,,1
+Water Import From Europa,25,,1,,,,,,1,,,
+Equatorial Magnetizer,11,1,,,,,,,,,,
+Domed Crater,24,1,,,,,,,,,1,
+Noctis City,18,1,,,,,,,,,1,
+Methane From Titan,28,,1,,,,,,1,,,
+Imported Hydrogen,16,,1,,,,,,,1,,1
+Research Outpost,18,1,,1,,,,,,,1,
+Phobos Space Haven,25,,1,,,,,,,,1,
+Black Polar Dust,15,,,,,,,,,,,
+Arctic Algae,12,,,,1,,,,,,,
+Predators,14,,,,,,1,,,,,
+Eos Chasma National Park,16,1,,,1,,,,,,,
+Cupola City,16,1,,,,,,,,,1,
+Lunar Bean,13,,,,,,,1,,1,,
+Optimal Aerobraking,7,,1,,,,,,,,,
+Underground City,18,1,,,,,,,,,1,
+Regolith Eaters,13,,,1,,1,,,,,,
+Ghg Producing Bacteria,8,,,1,,1,,,,,,
+Ants,9,,,,,1,,,,,,
+Release of inert gases,14,,,,,,,,,,,1
+Nitrogen-Rich Asteroid,31,,1,,,,,,,,,1
+Rover Construction,8,1,,,,,,,,,,
+Deimos Down,31,,1,,,,,,,,,1
+Asteroid Mining,30,,1,,,,,,1,,,
+Food Factory,12,1,,,,,,,,,,
+Archaebacteria,6,,,,,1,,,,,,
+Carbonate Processing,6,1,,,,,,,,,,
+Natural Preserve,9,1,,1,,,,,,,,
+Nuclear Power,10,1,,,,,,1,,,,
+Algae,10,,,,1,,,,,,,
+Adapted Lichen,9,,,,1,,,,,,,
+Fish,9,,,,,,1,,,,,
+Lake Marineris,18,,,,,,,,,,,
+Small Animals,6,,,,,,1,,,,,
+Kelp Farming,17,,,,1,,,,,,,
+Beam from a Thorium Asteroid,32,,1,,,,,1,1,,,
+Mangrove,12,,,,1,,,,,,,
+Trees,13,,,,1,,,,,,,
+Mining Expedition,12,,,,,,,,,,,1
+Mining Rights,9,1,,,,,,,,,,
+Birds,10,,,,,,1,,,,,
+Towing a comet,23,,1,,,,,,,,,1
+Space Mirrors,3,,1,,,,,1,,,,
+Solar wind power,11,,1,1,,,,1,,,,
+Ice asteroid,23,,1,,,,,,,,,1
+Giant Ice asteroid,36,,1,,,,,,,,,1
+Ganymede Colony,20,,1,,,,,,1,,1,
+Giant Space mirror,17,,1,,,,,1,,,,
+Grass,11,,,,1,,,,,,,
+Heater,6,,,,1,,,,,,,
+Peroxide Power,7,1,,,,,,1,,,,
+Bushes,10,,,,1,,,,,,,
+Greenhouses,6,1,,,1,,,,,,,
+Nuclear Zone,10,,,,,,,,,1,,
+Fueled Generators,1,1,,,,,,1,,,,
+Ironworks,11,1,,,,,,,,,,
+Power Grid,18,,,,,,,1,,,,
+Steelworks,15,1,,,,,,,,,,
+Ore Processor,13,1,,,,,,,,,,
+Open City,23,1,,,,,,,,,1,
+Solar Power,11,1,,,,,,1,,,,
+Breathing Filters,11,,,1,,,,,,,,
+Artificial Photosynthesis,12,,,1,,,,,,,,
+Artificial Lake,15,1,,,,,,,,,,
+Geothermal Power,11,1,,,,,,1,,,,
+Farming,16,,,,1,,,,,,,
+Dust Seals,2,,,,,,,,,,,
+Urbanized Area,10,1,,,,,,,,,1,
+Moss,4,,,,1,,,,,,,
+Ghg Factories,11,1,,,,,,,,,,
+Subterranean Reservoir,11,,,,,,,,,,,1
+Ecological Zone,12,,,,1,,1,,,,,
+Zeppelins,13,,,,,,,,,,,
+Worms,8,,,,,1,,,,,,
+Decomposers,5,,,,,1,,,,,,
+Fusion Power,14,1,,1,,,,1,,,,
+Symbiotic Fungus,4,,,,,1,,,,,,
+Extreme-Cold Fungus,13,,,,,1,,,,,,
+Advanced ecosystems,11,,,,1,1,1,,,,,
+Great Dam,12,1,,,,,,1,,,,
+Strip Mine,25,1,,,,,,,,,,
+Wave Power,8,,,,,,,1,,,,
+Lava flows,18,,,,,,,,,,,1
+Power plant,4,1,,,,,,1,,,,
+Mohole Area,20,1,,,,,,,,,,
+Large Convoy,36,,1,,,,,,,1,,1
+Tectonic Stress Power,18,1,,,,,,1,,,,
+Nitrophilic Moss,8,,,,1,,,,,,,
+Herbivores,12,,,,,,1,,,,,
+Insects,9,,,,,1,,,,,,
+Insulation,2,,,,,,,,,,,
+Adaption Technology,12,,,1,,,,,,,,
+Designed Microorganisms,16,,,1,,1,,,,,,
+Nitrite Reducing Bacteria,11,,,,,1,,,,,,
+Industrial Mircobes,12,1,,,,,,,,,,
+Lichen,7,,,,1,,,,,,,
+Convoy from europa,15,,1,,,,,,,,,1
+Imported GHG,7,,1,,,,,,,1,,1
+Imported Nitrogen,23,,1,,,,,,,1,,1
+Micro-mills,3,,,,,,,,,,,
+Magnetic Field Generators,20,1,,,,,,,,,,
+Shuttles,10,,1,,,,,,,,,
+Import of advanced GHG,9,,1,,,,,,,1,,1
+Windmills,6,1,,,,,,1,,,,
+Tundra Farming,16,,,,1,,,,,,,
+Aerobraked Ammonia Asteroid,26,,1,,,,,,,,,1
+Magnetic Field Dome,5,1,,,,,,,,,,
+Pets,10,,,,,,1,,,1,,
+Protected Valley,23,1,,,1,,,,,,,
+Noctis Farming,10,1,,,1,,,,,,,
+Water Splitting plant,12,1,,,,,,,,,,
+Heat Trappers,6,1,,,,,,1,,,,
+Soil Factory,9,1,,,,,,,,,,
+Ice Cap Melting,5,,,,,,,,,,,1
+Biomass Combustors,4,1,,,,,,1,,,,
+Livestock,13,,,,,,1,,,,,
+Aquifer Pumping,18,1,,,,,,,,,,
+Flooding,7,,,,,,,,,,,1
+Energy Saving,15,,,,,,,1,,,,
+Local Heat Trapping,1,,,,,,,,,,,1
+Permafrost Extraction,8,,,,,,,,,,,1
+Plantation,15,,,,1,,,,,,,
+Immigration Shuttles,31,,1,,,,,,,1,,
+Immigrant City,13,1,,,,,,,,,1,
+Underground Detonations,6,1,,,,,,,,,,
+Soletta,35,,1,,,,,,,,,
+Rad-Chem Factory,8,1,,,,,,,,,,
+Special Design,4,,,,,,,,,,,1
