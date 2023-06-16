@@ -1,16 +1,8 @@
-<script lang="ts">
-    const exampleString: string = "Lorem Dipsum Colore";
-</script>
-
-<div>
-    <div class="container p-5">
-        <div class="row">
-            <div class="col">
-                <button class="bg-indigo-800 text-green-50 py-1 px-3 text-center rounded">
-                    Button
-                </button>
-                <h1 class="text-indigo-800 font-bold text-5xl">{exampleString}</h1>
-            </div>
-        </div>
-    </div>
+<div class="w-full pt-5">
+    <h1 class="text-indigo-900 text-center font-bold text-5xl">Welcome to TMAI</h1>
+    <h3 class="text-indigo-900 text-center font-bold text-3xl pt-3">This is a personal project to practice application and AI design skills</h3>
+    <h3 class="text-indigo-900 text-center font-bold text-3xl pt-3">Terraforming Mars is my favourite Boardgame but I am really bad at it</h3>
+    <h3 class="text-indigo-900 text-center font-bold text-3xl">The goal is to make an AI that is able to advise me to be able to beat any challenger!</h3>
+    <h3 class="text-indigo-900 text-center font-bold text-3xl pt-5">Currently, you are able to view cards and how much they cost but there is much more to come</h3>
+    <h3 class="text-indigo-900 text-center font-bold text-3xl">Check in again when we have more features to display</h3>
 </div>
