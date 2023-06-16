@@ -6,7 +6,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.io.Reader;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -40,9 +42,10 @@ public class CardCSVParser implements CardDAO {
     /**
      * Reads all lines of the card CSV
      * @return A list of string array's one for each line of the CSV
-     * @throws Exception When the CSV cannot be read
+     * @throws IOException When the CSV cannot be read
+     * @throws URISyntaxException Invalid URI (Not possible)
      */
-    private List<String[]> readAllLines() throws Exception {
+    private List<String[]> readAllLines() throws IOException, URISyntaxException {
         Path path = Paths.get(
                 ClassLoader.getSystemResource("card.csv").toURI());
         try (Reader reader = Files.newBufferedReader(path)) {
@@ -52,6 +55,12 @@ public class CardCSVParser implements CardDAO {
         }
     }
 
+    /**
+     * Takes a CSV of the following format and converts it into a list of cards
+     * | Title |
+     * @param stringArrays The list of string arrays to parse into Cards (With a header row)
+     * @return The list of cards that are created
+     */
     private List<Card> createCardList(List<String[]> stringArrays){
         List<Card> cards = new ArrayList<>();
         for (int i = 1; i < stringArrays.size(); i++){
