@@ -2,7 +2,6 @@
 
     import {API} from "../apis/API";
     import CardCard from "../Components/CardCard.svelte";
-    import {DoubleBounce} from "svelte-loading-spinners";
     import Loader from "../Components/Layout/Loader.svelte";
 
     let cards: Card[];

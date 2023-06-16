@@ -13,10 +13,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
 @WebMvcTest(controllers = CardController.class)
 @AutoConfigureMockMvc()
-public class CardControllerTest {
+class CardControllerTest {
 
     @MockBean
     private CardService cardService;
@@ -39,7 +37,7 @@ public class CardControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    void getAllCards_NoCards_Returns200(){
+    void getAllCards_NoCards_Returns200() {
         try {
             List<Card> cards = new ArrayList<>();
             when(cardService.getAllCards()).thenReturn(cards);
@@ -53,7 +51,7 @@ public class CardControllerTest {
     }
 
     @Test
-    void getAllCards_Cards_Returns200(){
+    void getAllCards_Cards_Returns200() {
         try {
             List<Card> cards = new ArrayList<>();
             Card card1 = new Card();

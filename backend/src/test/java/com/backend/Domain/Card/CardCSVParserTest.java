@@ -3,9 +3,7 @@ package com.backend.Domain.Card;
 import com.backend.Domain.Utility.CSVReader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
@@ -21,6 +19,7 @@ import static org.mockito.Mockito.when;
 class CardCSVParserTest {
 
     CSVReader csvReaderMock;
+    String[] headers = {"Title", "Cost"};
     private CardDAO csvParser;
 
     @BeforeEach
@@ -31,7 +30,6 @@ class CardCSVParserTest {
 
     @Test
     void getAll_ValidCSV_ReturnsCard() throws IOException, URISyntaxException {
-        String[] headers = {"Title", "Cost"};
         String[] row = {"Test Title", "5"};
         List<String[]> rows = new ArrayList<>();
         rows.add(headers);
@@ -48,7 +46,6 @@ class CardCSVParserTest {
 
     @Test
     void getAll_FailedToReadCSV_ReturnsEmptyList() throws IOException, URISyntaxException {
-        String[] headers = {"Title", "Cost"};
         String[] row = {"Test Title", "5"};
         List<String[]> rows = new ArrayList<>();
         rows.add(headers);

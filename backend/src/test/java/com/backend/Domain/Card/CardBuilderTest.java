@@ -57,4 +57,18 @@ class CardBuilderTest {
         Card result = builder.build();
         assertEquals(-1, result.getCost());
     }
+
+    @Test
+    void withCost_AWord_FallsToNegativeOne() {
+        builder.withCost("Test");
+        Card result = builder.build();
+        assertEquals(-1, result.getCost());
+    }
+
+    @Test
+    void withCost_AFloat_FallsToNegativeOne() {
+        builder.withCost("5.6");
+        Card result = builder.build();
+        assertEquals(-1, result.getCost());
+    }
 }
