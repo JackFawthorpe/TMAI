@@ -17,7 +17,7 @@ public class CardBuilder {
      * @param title The title of the card
      */
     public CardBuilder(String title) {
-        this.card = new Card(title);
+        this.card = new Card(title == null || title.equals("") ? "No Title Provided" : title);
     }
 
     /**
