@@ -13,16 +13,16 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-public class CardCSVProxyTest {
+class CardCSVProxyTest {
 
     CardCSVProxy cardProxy;
 
-    CardCSVParser parserSpy;
+    CardCSVParser parserMock;
 
     @BeforeEach
     void setProxy() {
-        parserSpy = Mockito.mock(CardCSVParser.class);
-        cardProxy = new CardCSVProxy(parserSpy);
+        parserMock = Mockito.mock(CardCSVParser.class);
+        cardProxy = new CardCSVProxy(parserMock);
     }
 
     @Test
@@ -31,13 +31,13 @@ public class CardCSVProxyTest {
         Card card = new Card();
         card.setTitle("Test Card");
         cards.add(card);
-        when(parserSpy.getAll()).thenReturn(cards);
+        when(parserMock.getAll()).thenReturn(cards);
 
         List<Card> result = cardProxy.getAll();
         assertEquals(cards, result);
         cardProxy.getAll();
         assertEquals(cards, result);
 
-        verify(parserSpy, Mockito.times(1)).getAll();
+        verify(parserMock, Mockito.times(1)).getAll();
     }
 }
