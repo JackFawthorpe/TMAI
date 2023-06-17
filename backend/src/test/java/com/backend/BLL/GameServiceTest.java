@@ -1,6 +1,6 @@
 package com.backend.BLL;
 
-import com.backend.Domain.Game;
+import com.backend.Domain.GameState.Game;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -2,7 +2,7 @@ package com.backend.MVC;
 
 
 import com.backend.BLL.GameService;
-import com.backend.Domain.Game;
+import com.backend.Domain.GameState.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
