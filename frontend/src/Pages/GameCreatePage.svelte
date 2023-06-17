@@ -4,16 +4,22 @@
 
     let playerCount: number = 2;
     let playerNames: string[] = ["", ""];
+    let hasError: boolean = false;
 
     $: {
+        hasError = playerCount < 0 || playerCount > 6
+
         let updated = [];
         for (let i = 0; i < playerCount; i++) {
             updated[i] = playerNames[i] === undefined ? "" : playerNames[i]
         }
         playerNames = updated;
     }
-
     async function handleSubmit() {
+        if (hasError) {
+            return;
+        }
+
         try {
             await API.postGame(playerNames);
             navigate("/game");
@@ -31,6 +37,9 @@
                     Player Count
                 </label>
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 text-lg leading-tight focus:outline-none focus:shadow-outline" id="playerCount" type="number" bind:value={playerCount} min="1" max="6">
+                {#if hasError}
+                    <span class="text-sm text-red-600"> Invalid player count, please select a number between 1 and 6</span>
+                {/if}
             </div>
             {#each playerNames as playerName, id}
                 <div class="mb-4">
