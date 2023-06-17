@@ -3,6 +3,7 @@
     import Loader from "../Components/Layout/Loader.svelte";
     import {API} from "../apis/API";
     import {navigate} from "svelte-routing";
+    import PlayerCard from "../Components/Game/PlayerCard.svelte";
 
     let game: Game;
     const loadGame = async () => {
@@ -25,9 +26,18 @@
     <Loader/>
 {:then _}
     <div class="container-fluid pt-5">
-        {#each game.players as player}
-            <h3 class="text-indigo-900 text-center font-bold text-3xl">{player.name}</h3>
-        {/each}
+        <div class="mx-2 grid grid-cols-1 md:grid-cols-3 gap-y-3 md:gap-x-2">
+            <div class="grid grid-cols-1 gap-y-3">
+                {#each game.players as player}
+                    <PlayerCard player={player}/>
+                {/each}
+            </div>
+            <div class="col-span-1 sm:col-span-2">
+                <div class="container-fluid bg-white rounded-xl">
+                    <h3 class="text-black text-2xl text-center py-3">Board Placeholder</h3>
+                </div>
+            </div>
+        </div>
     </div>
 {:catch error}
     <p style="color: red">{error.message}</p>
