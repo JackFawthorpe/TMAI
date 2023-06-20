@@ -1,4 +1,4 @@
-package com.backend.Domain;
+package com.backend.Domain.GameState;
 
 /**
  * Entity to represent the state of the game at any point

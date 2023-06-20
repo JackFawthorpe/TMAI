@@ -1,7 +1,7 @@
 package com.backend.MVC;
 
 import com.backend.BLL.GameService;
-import com.backend.Domain.Game;
+import com.backend.Domain.GameState.Game;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;

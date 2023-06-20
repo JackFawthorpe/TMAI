@@ -1,5 +1,7 @@
 package com.backend.Domain;
 
+import com.backend.Domain.GameState.Game;
+import com.backend.Domain.GameState.Player;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

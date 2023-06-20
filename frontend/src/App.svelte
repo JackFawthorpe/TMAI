@@ -8,7 +8,7 @@
   import GamePage from "./Pages/GamePage.svelte";
   import GameCreatePage from "./Pages/GameCreatePage.svelte";
 </script>
-<div class="min-h-screen bg-gradient-to-r from-green-300 to-blue-500">
+<div class="min-h-screen bg-gradient-to-r from-green-300 to-blue-500 pb-5">
   <Router>
     <Navbar/>
     <Route component={HomePage}/>
