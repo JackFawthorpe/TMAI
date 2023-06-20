@@ -27,13 +27,13 @@
     <Loader/>
 {:then _}
     <div class="container-fluid pt-5">
-        <div class="mx-2 grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-x-2">
-            <div class="col-span-2 grid grid-cols-2 gap-x-3 gap-y-3">
+        <div class="mx-2 grid grid-cols-1 lg:grid-cols-2 gap-y-3 md:gap-x-2">
+            <div class="col-span-1 grid grid-cols-2 gap-x-3 gap-y-3">
                 {#each game.players as player}
                     <PlayerCard player={player}/>
                 {/each}
             </div>
-            <div class="col-span-1 sm:col-span-2 flex justify-center">
+            <div class="col-span-1 flex justify-center md:justify-start">
                 <BoardCard board={game.board}/>
             </div>
         </div>
