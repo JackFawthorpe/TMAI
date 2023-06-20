@@ -6,6 +6,9 @@ package com.backend.Domain.GameState;
 public class Game {
     Player[] players;
 
+    Board board = new Board();
+
+
     /**
      * Gets all the players that are involved in the game
      *
@@ -33,5 +36,14 @@ public class Game {
             String name = playerNames[i].trim();
             players[i] = new Player(name.equals("") ? "Player " + (i + 1) : name.trim());
         }
+    }
+
+    /**
+     * Gets the current state of the board for the game
+     *
+     * @return The board
+     */
+    public Board getBoard() {
+        return board;
     }
 }

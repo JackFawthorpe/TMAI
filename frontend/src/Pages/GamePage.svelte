@@ -4,6 +4,7 @@
     import {API} from "../apis/API";
     import {navigate} from "svelte-routing";
     import PlayerCard from "../Components/Game/PlayerCard.svelte";
+    import BoardCard from "../Components/Game/BoardCard.svelte";
 
     let game: Game;
     const loadGame = async () => {
@@ -26,16 +27,14 @@
     <Loader/>
 {:then _}
     <div class="container-fluid pt-5">
-        <div class="mx-2 grid grid-cols-1 md:grid-cols-3 gap-y-3 md:gap-x-2">
-            <div class="grid grid-cols-1 gap-y-3">
+        <div class="mx-2 grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-x-2">
+            <div class="col-span-2 grid grid-cols-2 gap-x-3 gap-y-3">
                 {#each game.players as player}
                     <PlayerCard player={player}/>
                 {/each}
             </div>
-            <div class="col-span-1 sm:col-span-2">
-                <div class="container-fluid bg-white rounded-xl">
-                    <h3 class="text-black text-2xl text-center py-3">Board Placeholder</h3>
-                </div>
+            <div class="col-span-1 sm:col-span-2 flex justify-center">
+                <BoardCard board={game.board}/>
             </div>
         </div>
     </div>
