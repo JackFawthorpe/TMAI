@@ -5,12 +5,12 @@
 
     // Board Constants px
     const CELL_SIZE = 80
-    const BOARD_HORZ_SHIFT = 15
+    const BOARD_HORZ_SHIFT = CELL_SIZE / 4
+    const BOARD_VERT_SHIFT = CELL_SIZE / 4
+    const VERT_ROW_SHIFT = 3/4 * CELL_SIZE
     const MAIN_ROW_COUNT = 9
-    const BOARD_VERT_SHIFT = 20
-    const BOARD_X_SIZE = 750
-    const BOARD_Y_SIZE = 600
-    const VERT_ROW_SHIFT = 60
+    const BOARD_X_SIZE = MAIN_ROW_COUNT * CELL_SIZE + 2 * BOARD_HORZ_SHIFT;
+    const BOARD_Y_SIZE = MAIN_ROW_COUNT * (VERT_ROW_SHIFT + 2) + 2 * BOARD_VERT_SHIFT
     export let board: Board
 
     const getTransform = (index) => {
