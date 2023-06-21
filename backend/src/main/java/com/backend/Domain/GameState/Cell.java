@@ -5,10 +5,13 @@ package com.backend.Domain.GameState;
  */
 public class Cell {
 
-    String cellName = "Test";
+    CellType type;
 
-    public String getCellName() {
-        return cellName;
+    public Cell() {
+        type = CellType.randomCellType();
     }
 
+    public CellType getType() {
+        return type;
+    }
 }

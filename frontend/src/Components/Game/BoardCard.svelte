@@ -1,8 +1,7 @@
 <script lang="ts">
 
-    const imageArray = [
-        "src/Resources/EmptyHex.svg"
-    ];
+    import type {Board} from "../../Types/Board";
+    import {CellImage} from "../../Types/Board";
 
     // Board Constants px
     const CELL_SIZE = 80
@@ -28,7 +27,7 @@
     {#each board.cells as row, i}
         <div class="flex absolute" style={getTransform(i)}>
             {#each row as i}
-                <img src={imageArray[0]} style={imageStyle} alt="cell">
+                <img src={CellImage[i.type]} style={imageStyle} alt="cell">
             {/each}
         </div>
     {/each}
