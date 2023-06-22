@@ -3,7 +3,7 @@ export interface Board {
 }
 
 export interface Cell {
-    type: 0 | 1 | 2 | 3
+    type: "EMPTY" | "CITY" | "SPECIAL" | "OCEAN" | "GREENERY"
 }
 
 export enum CellImage {
