@@ -12,7 +12,7 @@
     ];
 </script>
 
-<div class="bg-white rounded-xl">
+<div class="border border-gray">
     <h3 class="pt-3 text-center text-xl text-indigo-800 font-bold">{player.name}</h3>
     <h3 class="pt-3 text-center text-l text-black font-bold pb-2">Resources</h3>
     <div class="grid grid-cols-6 justify-items-center">

@@ -1,6 +1,7 @@
+import type {Player} from "./Player";
 import type {Board} from "./Board";
 
-interface Game {
+export interface Game {
     players: Player[]
     board: Board
 }

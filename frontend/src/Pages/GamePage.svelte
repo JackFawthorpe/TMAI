@@ -5,6 +5,7 @@
     import {navigate} from "svelte-routing";
     import PlayerCard from "../Components/Game/PlayerCard.svelte";
     import BoardCard from "../Components/Game/BoardCard.svelte";
+    import type {Game} from "../Types/Game";
 
     let game: Game;
     const loadGame = async () => {
@@ -26,16 +27,16 @@
 {#await promise}
     <Loader/>
 {:then _}
-    <div class="container-fluid pt-5">
-        <div class="mx-2 grid grid-cols-1 {game.players.length > 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3'} gap-y-3 md:gap-x-2">
-            <div class="col-span-1 grid grid-cols-2 {game.players.length <= 2 ? 'lg:grid-cols-1' : ''} gap-x-3 gap-y-3">
+    <div class="container-fluid h-screen flex gap-2">
+        <div class="w-[40%] bg-white">
+            <div class="grid grid-cols-1 xl:grid-cols-2">
                 {#each game.players as player}
                     <PlayerCard player={player}/>
                 {/each}
             </div>
-            <div class=" {game.players.length > 2 ? 'col-span-1' : 'col-span-2'} flex justify-center md:justify-start">
-                <BoardCard board={game.board}/>
-            </div>
+        </div>
+        <div class="w-[60%] m-auto flex justify-center">
+            <BoardCard board={game.board}/>
         </div>
     </div>
 {:catch error}

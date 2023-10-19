@@ -4,7 +4,7 @@
     import {CellImage} from "../../Types/Board";
 
     // Board Constants px
-    const CELL_SIZE = 80
+    const CELL_SIZE = 100
     const BOARD_HORZ_SHIFT = CELL_SIZE / 4
     const BOARD_VERT_SHIFT = CELL_SIZE / 4
     const VERT_ROW_SHIFT = 3/4 * CELL_SIZE
