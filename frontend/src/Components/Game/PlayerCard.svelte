@@ -1,5 +1,6 @@
 <script lang="ts">
 
+    import type {Player} from "../../Types/Player";
 
     export let player: Player;
     const imageArray = [

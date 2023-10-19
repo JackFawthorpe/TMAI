@@ -1,6 +1,5 @@
 <script lang="ts">
     import type {Card} from "../Types/Card";
-    import {CellImage} from "../Types/Board";
     import {TagImage} from "../Types/Card";
 
     export let card: Card;
