@@ -1,5 +1,6 @@
 <script>
     import {Link} from "svelte-routing";
+    import {BarsSolid} from "flowbite-svelte-icons";
 
     let isOpen = false;
 
@@ -30,10 +31,8 @@
     </ul>
 </div>
 
-<button class="fixed top-4 right-4 p-2 text-white" on:click={toggleSidebar}>
-    {#if isOpen}
-        Close Sidebar
-    {:else}
-        Open Sidebar
-    {/if}
+<button class="fixed top-4 right-4 p-2 bg-white rounded-full" on:click={toggleSidebar}>
+    <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+    </svg>
 </button>
