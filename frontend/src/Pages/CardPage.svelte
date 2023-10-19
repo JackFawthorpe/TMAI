@@ -16,7 +16,7 @@
 {#await promise}
     <Loader/>
 {:then _}
-    <ul class="mx-2 grid mt-2 gap-y-5 gap-x-3 grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4">
+    <ul class="mx-2 grid mt-2 gap-y-5 gap-x-3 grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3">
         {#each cards as card}
             <CardCard card={card}/>
         {/each}
