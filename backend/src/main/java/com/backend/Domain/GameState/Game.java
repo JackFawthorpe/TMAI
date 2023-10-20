@@ -1,13 +1,25 @@
 package com.backend.Domain.GameState;
 
 /**
- * Entity to represent the state of the game at any point
+ * Singleton Pattern for data about the current game that is being played
  */
 public class Game {
-    Player[] players;
 
-    Board board = new Board();
+    // Singleton Pattern
+    private static Game currentGame = null;
 
+    public static Game getGame() {
+        return currentGame;
+    }
+
+    public static void setGame(Game game) {
+        currentGame = game;
+    }
+
+
+    private Player[] players;
+    private final Board board = new Board();
+    private final GlobalParameters globalParameters = new GlobalParameters();
 
     /**
      * Gets all the players that are involved in the game
@@ -45,5 +57,13 @@ public class Game {
      */
     public Board getBoard() {
         return board;
+    }
+
+    /**
+     * Gets the global parameters of the game (water, o2 and temperature)
+     * @return The global parameters of the game
+     */
+    public GlobalParameters getGlobalParameters() {
+        return globalParameters;
     }
 }

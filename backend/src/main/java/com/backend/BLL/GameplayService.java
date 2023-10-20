@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
  * Runs a singleton instance of the game for the website
  */
 @Service
-public class GameService {
-
-    private Game currentGame;
+public class GameplayService {
 
     /**
      * Instantiates the game for the website
@@ -22,16 +20,7 @@ public class GameService {
     public Game createGame(String[] playerNames) {
         Game game = new Game();
         game.setPlayers(playerNames);
-        this.currentGame = game;
+        Game.setGame(game);
         return game;
-    }
-
-    /**
-     * Gets the game that is currently in play
-     *
-     * @return The game
-     */
-    public Game getGame() {
-        return this.currentGame;
     }
 }

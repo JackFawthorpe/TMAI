@@ -1,7 +1,7 @@
 package com.backend.MVC;
 
 
-import com.backend.BLL.GameService;
+import com.backend.BLL.GameplayService;
 import com.backend.Domain.GameState.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GameController {
 
     @Autowired
-    GameService gameService;
+    GameplayService gameService;
 
     /**
      * Endpoint for creating the singleton game
@@ -40,7 +40,7 @@ public class GameController {
      */
     @GetMapping("/game")
     public ResponseEntity getGame() {
-        Game game = gameService.getGame();
+        Game game = Game.getGame();
         if (game == null) {
             return ResponseEntity.notFound().build();
         }

@@ -9,11 +9,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GameServiceTest {
 
-    GameService service;
+    GameplayService service;
 
     @BeforeEach
     void reset() {
-        service = new GameService();
+        service = new GameplayService();
     }
 
     @Test
@@ -29,16 +29,10 @@ class GameServiceTest {
         Game result = service.createGame(new String[]{"Bob", "Cob", "Cob", "Cob", "Cob", "Cob", "Cob", "Cob"});
         assertEquals(6, result.getPlayers().length);
     }
-
-    @Test
-    void getGame_notCreated_returnsNull() {
-        Game result = service.getGame();
-        assertNull(result);
-    }
     @Test
     void createGame_ValidGame_Persists() {
         Game created = service.createGame(new String[]{"Test"});
-        Game gotten = service.getGame();
+        Game gotten = Game.getGame();
         assertSame(created, gotten);
     }
 

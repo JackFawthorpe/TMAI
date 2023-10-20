@@ -1,6 +1,6 @@
 package com.backend.MVC;
 
-import com.backend.BLL.GameService;
+import com.backend.BLL.GameplayService;
 import com.backend.Domain.GameState.Game;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ public class GameWebSocketController {
     Logger logger = LoggerFactory.getLogger(GameWebSocketController.class);
 
     @Autowired
-    private GameService gameService;
+    private GameplayService gameService;
 
     /**
      * Endpoint to push and receive turns from
@@ -30,6 +30,6 @@ public class GameWebSocketController {
     public Game takeTurn(String message) {
         logger.info("MESSAGE /game/turn");
 
-        return gameService.getGame();
+        return Game.getGame();
     }
 }

@@ -1,6 +1,6 @@
 package com.backend.MVC;
 
-import com.backend.BLL.GameService;
+import com.backend.BLL.GameplayService;
 import com.backend.Domain.GameState.Game;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,7 +29,7 @@ class GameControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private GameService gameService;
+    private GameplayService gameService;
 
 
     @Test
@@ -57,7 +57,7 @@ class GameControllerTest {
     void getGame_WithGame_ReturnsGame() throws Exception {
         Game game = new Game();
         game.setPlayers(new String[]{"Test User"});
-        when(gameService.getGame()).thenReturn(game);
+        Game.setGame(game);
         mockMvc.perform(get("/game"))
                 .andExpect(status().isOk())
                 .andExpect(content().json(toJson(game)));
@@ -65,7 +65,7 @@ class GameControllerTest {
 
     @Test
     void getGame_WithNoGame_ReturnsNotFound() throws Exception {
-        when(gameService.getGame()).thenReturn(null);
+        Game.setGame(null);
         mockMvc.perform(get("/game"))
                 .andExpect(status().isNotFound());
     }
