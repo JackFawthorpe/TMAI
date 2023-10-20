@@ -14,7 +14,7 @@ export const SocketAPI = {
         stompClient = webstomp.client(window.location.origin.replace("http", "ws") + "/socket/game/socket");
         stompClient.hasDebug = debug;
         stompClient.connect({}, () => {
-            stompClient.subscribe('socket/topic/game', onMessage, {});
+            stompClient.subscribe('/topic/game/turn', onMessage, {});
             onConnect();
         }, onFail);
     },
@@ -22,5 +22,5 @@ export const SocketAPI = {
         stompClient ? stompClient.disconect() : console.log("Can only disconnect if previously connected");
     },
     onMessage: onMessage,
-    sendMessage: (turn:  Turn) => {stompClient.send('/socket/app/game', turn, {})}
+    sendMessage: (turn:  Turn) => {stompClient.send('/app/game/turn', turn, {})}
 }

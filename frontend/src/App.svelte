@@ -1,7 +1,7 @@
 <script>
   import { Router, Route } from 'svelte-routing'
   import Navbar from "./Components/Layout/Sidebar.svelte";
-  import "./app.css"
+  import "./Resources/css/app.css"
   import CardPage from "./Pages/CardPage.svelte";
   import GamePage from "./Pages/GamePage.svelte";
   import HomePage from './Pages/Home.svelte';

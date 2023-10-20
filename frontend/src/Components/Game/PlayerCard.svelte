@@ -4,12 +4,12 @@
 
     export let player: Player;
     const imageArray = [
-        "src/Resources/Credit.png",
-        "src/Resources/Steel.png",
-        "src/Resources/Titanium.png",
-        "src/Resources/Plant.png",
-        "src/Resources/Energy.png",
-        "src/Resources/Heat.png"
+        "src/Resources/img/Credit.png",
+        "src/Resources/img/Steel.png",
+        "src/Resources/img/Titanium.png",
+        "src/Resources/img/Plant.png",
+        "src/Resources/img/Energy.png",
+        "src/Resources/img/Heat.png"
     ];
 </script>
 

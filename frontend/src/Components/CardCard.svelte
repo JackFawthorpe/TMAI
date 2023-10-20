@@ -11,7 +11,7 @@
 
         <!-- Credit Cost -->
         <div class="relative flex-none h-12 w-12">
-            <img src="src/Resources/Credit.png" alt="credit"/>
+            <img src="src/Resources/img/Credit.png" alt="credit"/>
             <h1 class="absolute text-2xl text-black font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">{card.cost}</h1>
         </div>
     </div>

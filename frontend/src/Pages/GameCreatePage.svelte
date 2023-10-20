@@ -31,7 +31,7 @@
 
 <div class="container-fluid flex justify-center pt-5">
     <div class="w-full max-w-xs">
-        <form class="bg-white drop-shadow-2xl rounded px-8 pt-6 pb-8 mb-4">
+        <div class="bg-white drop-shadow-2xl rounded px-8 pt-6 pb-8 mb-4">
             <div class="mb-4">
                 <label class="block text-gray-700 text-lg font-bold mb-2" for="playerCount">
                     Player Count
@@ -50,10 +50,10 @@
                 </div>
             {/each}
             <div class="flex justify-center">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" on:click={handleSubmit} type="button">
+                <button class="btn btn-primary" on:click={handleSubmit}>
                     Start Game
                 </button>
             </div>
-        </form>
+        </div>
     </div>
 </div>

@@ -7,9 +7,9 @@ export interface Cell {
 }
 
 export enum CellImage {
-    EMPTY = "src/Resources/EmptyHex.svg",
-    CITY = "src/Resources/CityHex.svg",
-    SPECIAL = "src/Resources/SpecialHex.svg",
-    OCEAN = "src/Resources/OceanHex.svg",
-    GREENERY = "src/Resources/GreeneryHex.svg"
+    EMPTY = "src/Resources/img/EmptyHex.svg",
+    CITY = "src/Resources/img/CityHex.svg",
+    SPECIAL = "src/Resources/img/SpecialHex.svg",
+    OCEAN = "src/Resources/img/OceanHex.svg",
+    GREENERY = "src/Resources/img/GreeneryHex.svg"
 }

@@ -9,15 +9,15 @@ export interface Cell {
  }
 
 export enum TagImage {
-    BUILDING = "src/Resources/Building.png",
-    SPACE = "src/Resources/Space.png",
-    SCIENCE = "src/Resources/Science.png",
-    PLANT = "src/Resources/PlantTag.png",
-    MICROBE = "src/Resources/Microbe.png",
-    ANIMAL = "src/Resources/Animal.png",
-    POWER = "src/Resources/Power.png",
-    JOVIAN = "src/Resources/Jovian.png",
-    EARTH = "src/Resources/Earth.png",
-    CITY = "src/Resources/City.png",
-    EVENT = "src/Resources/Event.png"
+    BUILDING = "src/Resources/img/Building.png",
+    SPACE = "src/Resources/img/Space.png",
+    SCIENCE = "src/Resources/img/Science.png",
+    PLANT = "src/Resources/img/PlantTag.png",
+    MICROBE = "src/Resources/img/Microbe.png",
+    ANIMAL = "src/Resources/img/Animal.png",
+    POWER = "src/Resources/img/Power.png",
+    JOVIAN = "src/Resources/img/Jovian.png",
+    EARTH = "src/Resources/img/Earth.png",
+    CITY = "src/Resources/img/City.png",
+    EVENT = "src/Resources/img/Event.png"
 }

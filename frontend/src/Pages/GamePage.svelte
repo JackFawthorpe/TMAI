@@ -24,6 +24,10 @@
         }
     }
 
+    const handleMessage = () => {
+        SocketAPI.sendMessage({message:"Hyallo"});
+    }
+
     const promise = loadGame();
 
 </script>
@@ -39,7 +43,12 @@
                 {/each}
             </div>
         </div>
-        <div class="w-[60%] m-auto flex justify-center">
+        <div class="w-[60%] m-auto flex flex-col items-center">
+            <div class="m-auto mb-3">
+                <button class="btn btn-secondary" on:click={handleMessage}>
+                    Hello Button
+                </button>
+            </div>
             <BoardCard board={game.board}/>
         </div>
     </div>
