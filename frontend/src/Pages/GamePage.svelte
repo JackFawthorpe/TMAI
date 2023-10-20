@@ -6,11 +6,15 @@
     import PlayerCard from "../Components/Game/PlayerCard.svelte";
     import BoardCard from "../Components/Game/BoardCard.svelte";
     import type {Game} from "../Types/Game";
+    import {SocketAPI} from "../apis/configs/SocketAPI";
+
 
     let game: Game;
     const loadGame = async () => {
         try {
             game = await API.getGame();
+            SocketAPI.connect(true);
+
         } catch (e) {
             if (e.response.status === 404) {
                 navigate("game/create")

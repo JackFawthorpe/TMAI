@@ -20,13 +20,20 @@ repositories {
 }
 
 dependencies {
+
+    // Base Imports
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'com.opencsv:opencsv:3.7'
+
+    // Web sockets
+    implementation 'org.springframework.boot:spring-boot-starter-websocket:3.1.4'
+
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
