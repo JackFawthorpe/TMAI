@@ -4,7 +4,7 @@
     import {CellImage} from "../../Types/Board";
 
     // Board Constants px
-    const CELL_SIZE = 100
+    const CELL_SIZE = 80
     const BOARD_HORZ_SHIFT = CELL_SIZE / 4
     const BOARD_VERT_SHIFT = CELL_SIZE / 4
     const VERT_ROW_SHIFT = 3/4 * CELL_SIZE
@@ -23,7 +23,7 @@
 
 </script>
 
-<div class="bg-white rounded-xl" style={boardStyle}>
+<div class="card" style={boardStyle}>
     {#each board.cells as row, i}
         <div class="flex absolute" style={getTransform(i)}>
             {#each row as i}

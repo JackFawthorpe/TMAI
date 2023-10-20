@@ -10,9 +10,9 @@
 </script>
 
 <div
-        class="fixed top-0 left-0 h-full w-64 bg-white text-white p-4 transform transition-transform duration-300 ease-in-out z-50 border r"
+        class="fixed top-0 right-0 h-full w-64 bg-white text-white p-4 transform transition-transform duration-300 ease-in-out z-50 border r"
         class:translate-x-0={isOpen}
-        class:translate-x-[-100%]={!isOpen}
+        class:translate-x-[100%]={!isOpen}
 >
     <ul>
         <li>
@@ -30,7 +30,9 @@
     </ul>
 </div>
 
-<button class="fixed top-4 right-4 p-2 bg-white rounded-full" on:click={toggleSidebar}>
+<button class="fixed top-4 right-4 p-2 bg-white rounded-full transition-transform duration-300 ease-in-out"
+        on:click={toggleSidebar}
+        class:translate-x-[-800%]={isOpen}>
     <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
     </svg>

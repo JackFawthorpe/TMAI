@@ -1,4 +1,6 @@
 @import 'btn.css';
+@import 'card.css';
+@import 'GlobalParameters.css';
 
 @tailwind base;
 @tailwind components;

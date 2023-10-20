@@ -7,6 +7,7 @@
     import BoardCard from "../Components/Game/BoardCard.svelte";
     import type {Game} from "../Types/Game";
     import {SocketAPI} from "../apis/configs/SocketAPI";
+    import GlobalParametersCard from "../Components/Game/GlobalParametersCard.svelte";
 
 
     let game: Game;
@@ -35,7 +36,7 @@
 {#await promise}
     <Loader/>
 {:then _}
-    <div class="container-fluid h-screen flex gap-2">
+    <div class="container-fluid h-screen flex gap-2 pe-2">
         <div class="w-[40%] bg-white">
             <div class="grid grid-cols-1 xl:grid-cols-2">
                 {#each game.players as player}
@@ -43,13 +44,9 @@
                 {/each}
             </div>
         </div>
-        <div class="w-[60%] m-auto flex flex-col items-center">
-            <div class="m-auto mb-3">
-                <button class="btn btn-secondary" on:click={handleMessage}>
-                    Hello Button
-                </button>
-            </div>
+        <div class="w-[60%] m-auto flex flex-col items-center gap-2">
             <BoardCard board={game.board}/>
+            <GlobalParametersCard params={game.globalParameters}/>
         </div>
     </div>
 {:catch error}
