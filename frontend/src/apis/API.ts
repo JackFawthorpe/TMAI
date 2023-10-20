@@ -29,6 +29,16 @@ export const API = {
         })
 
         return response.data
+    },
+    takePlayer: async function(playerId: number, cancel = false) {
+        const response = await api.request({
+            url: `/game/play`,
+            method: "POST",
+            data: playerId,
+            headers: {"Content-Type": "application/json"},
+            signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined
+        })
+        return response.status === 200;
     }
 }
 

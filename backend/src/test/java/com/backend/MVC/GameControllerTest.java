@@ -31,6 +31,8 @@ class GameControllerTest {
     @MockBean
     private GameplayService gameService;
 
+    @MockBean
+    private GameWebSocketController gameWebSocketController;
 
     @Test
     void createGame_NoPlayerNames_ReturnsBadRequest() throws Exception {

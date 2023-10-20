@@ -3,7 +3,10 @@ package com.backend.MVC;
 
 import com.backend.BLL.GameplayService;
 import com.backend.Domain.GameState.Game;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GameController {
 
+    Logger logger = LoggerFactory.getLogger(GameController.class);
+
     @Autowired
-    GameplayService gameService;
+    private GameplayService gameService;
+
+    @Autowired
+    private GameWebSocketController gameWebSocketController;
 
     /**
      * Endpoint for creating the singleton game
@@ -45,5 +53,24 @@ public class GameController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(game);
+    }
+
+    /**
+     * Endpoint for letting users join the game
+     *
+     * @param playerId The index of player that is going to be controlled
+     * @return 200 if successfully started to control otherwise 400
+     */
+    @PostMapping(value = "/game/play", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity playGame(@RequestBody int playerId) {
+        logger.info("POST /game/play");
+        try {
+            gameService.addHumanPlayer(playerId);
+            gameWebSocketController.pushGame();
+            return ResponseEntity.ok().body("");
+        } catch (IllegalArgumentException e) {
+            logger.warn(e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }

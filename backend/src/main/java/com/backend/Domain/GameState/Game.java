@@ -7,6 +7,9 @@ public class Game {
 
     // Singleton Pattern
     private static Game currentGame = null;
+    private final Board board = new Board();
+    private final GlobalParameters globalParameters = new GlobalParameters();
+    private Player[] players;
 
     public static Game getGame() {
         return currentGame;
@@ -15,11 +18,6 @@ public class Game {
     public static void setGame(Game game) {
         currentGame = game;
     }
-
-
-    private Player[] players;
-    private final Board board = new Board();
-    private final GlobalParameters globalParameters = new GlobalParameters();
 
     /**
      * Gets all the players that are involved in the game
@@ -46,7 +44,7 @@ public class Game {
         players = new Player[playerCount];
         for (int i = 0; i < playerCount; i++) {
             String name = playerNames[i].trim();
-            players[i] = new Player(name.equals("") ? "Player " + (i + 1) : name.trim());
+            players[i] = new Player(name.equals("") ? "Player " + (i + 1) : name.trim(), i);
         }
     }
 
@@ -61,6 +59,7 @@ public class Game {
 
     /**
      * Gets the global parameters of the game (water, o2 and temperature)
+     *
      * @return The global parameters of the game
      */
     public GlobalParameters getGlobalParameters() {

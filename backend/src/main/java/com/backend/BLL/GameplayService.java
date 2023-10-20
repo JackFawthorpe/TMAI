@@ -1,6 +1,8 @@
 package com.backend.BLL;
 
+import com.backend.BLL.PlayerManagement.HumanPlayerHandler;
 import com.backend.Domain.GameState.Game;
+import com.backend.Domain.GameState.Player;
 import org.springframework.stereotype.Service;
 
 /**
@@ -22,5 +24,14 @@ public class GameplayService {
         game.setPlayers(playerNames);
         Game.setGame(game);
         return game;
+    }
+
+    public void addHumanPlayer(int playerId) throws IllegalArgumentException {
+        Game game = Game.getGame();
+        Player[] players = game.getPlayers();
+        if (players[playerId].isHuman()) {
+            throw new IllegalArgumentException("Player is already controlled by a player");
+        }
+        players[playerId].setHandler(new HumanPlayerHandler());
     }
 }
