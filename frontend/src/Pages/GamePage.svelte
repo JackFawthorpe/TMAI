@@ -8,12 +8,16 @@
     import type {Game} from "../Types/Game";
     import {SocketAPI} from "../apis/configs/SocketAPI";
     import GlobalParametersCard from "../Components/Game/GlobalParametersCard.svelte";
+    import SocketConnectionDisplay from "../Components/Game/SocketConnectionDisplay.svelte";
 
 
     let game: Game;
+    let connected: boolean;
     const loadGame = async () => {
         try {
             game = await API.getGame();
+            SocketAPI.onConnect = () => {connected = true};
+            SocketAPI.onDisconnect = () => {connected = false};
             SocketAPI.connect(true);
 
         } catch (e) {
@@ -25,10 +29,6 @@
         }
     }
 
-    const handleMessage = () => {
-        SocketAPI.sendMessage({message:"Hyallo"});
-    }
-
     const promise = loadGame();
 
 </script>
@@ -37,11 +37,14 @@
     <Loader/>
 {:then _}
     <div class="container-fluid h-screen flex gap-2 pe-2">
-        <div class="w-[40%] bg-white">
+        <div class="w-[40%] bg-white flex flex-col justify-between">
             <div class="grid grid-cols-1 xl:grid-cols-2">
                 {#each game.players as player}
                     <PlayerCard player={player}/>
                 {/each}
+            </div>
+            <div>
+                <SocketConnectionDisplay connected={connected}/>
             </div>
         </div>
         <div class="w-[60%] m-auto flex flex-col items-center gap-2">

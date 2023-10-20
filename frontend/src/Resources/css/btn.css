@@ -3,9 +3,5 @@
 }
 
 .btn-primary {
-    @apply bg-blue-500 hover:bg-blue-700;
-}
-
-.btn-secondary {
     @apply bg-green-400 text-gray-900;
 }
