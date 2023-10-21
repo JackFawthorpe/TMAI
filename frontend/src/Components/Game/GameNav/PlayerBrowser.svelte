@@ -1,9 +1,9 @@
 <script lang="ts">
 
-    import type {Game} from "../../Types/Game";
+    import type {Game} from "../../../Types/Game";
     import PlayerCard from "./PlayerCard.svelte";
-    import type {Player} from "../../Types/Player";
-    import {contexts, subscribeToStore} from "../../apis/Contexts";
+    import type {Player} from "../../../Types/Player";
+    import {contexts, subscribeToStore} from "../../../apis/Contexts";
 
     let game: Game = null;
     subscribeToStore(contexts, (value) => (game = value));

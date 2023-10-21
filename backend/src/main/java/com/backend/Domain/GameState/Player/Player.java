@@ -7,7 +7,7 @@ import com.backend.Domain.Card.Card;
 import com.backend.Domain.GameState.Inventory;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents a player within a game
@@ -67,7 +67,8 @@ public class Player {
      *
      * @return the players hand
      */
-    public ArrayList<Card> getHand() {
+    @JsonIgnore
+    public List<Card> getHand() {
         return playerDeck.getHand();
     }
 }

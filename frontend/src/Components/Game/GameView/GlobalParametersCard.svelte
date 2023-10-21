@@ -1,7 +1,7 @@
 <script lang="ts">
-    import type {Game, GlobalParameters} from "../../Types/Game";
-    import {CellImage} from "../../Types/Board.js";
-    import {contexts, subscribeToStore} from "../../apis/Contexts";
+    import type {Game, GlobalParameters} from "../../../Types/Game";
+    import {CellImage} from "../../../Types/Board.js";
+    import {contexts, subscribeToStore} from "../../../apis/Contexts";
 
     let game: Game = null;
     subscribeToStore(contexts, (value) => (game = value));

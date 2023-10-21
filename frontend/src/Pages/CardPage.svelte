@@ -1,7 +1,7 @@
 <script lang="ts">
 
     import {API} from "../apis/API";
-    import CardCard from "../Components/CardCard.svelte";
+    import CardCard from "../Components/Card/CardCard.svelte";
     import Loader from "../Components/Layout/Loader.svelte";
     import type {Card} from "../Types/Card";
 

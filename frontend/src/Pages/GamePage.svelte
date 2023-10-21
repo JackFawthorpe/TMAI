@@ -3,10 +3,10 @@
     import Loader from "../Components/Layout/Loader.svelte";
     import {API} from "../apis/API";
     import {navigate} from "svelte-routing";
-    import BoardCard from "../Components/Game/BoardCard.svelte";
+    import BoardCard from "../Components/Game/GameView/BoardCard.svelte";
     import type {Game} from "../Types/Game";
     import {SocketAPI} from "../apis/SocketAPI";
-    import GlobalParametersCard from "../Components/Game/GlobalParametersCard.svelte";
+    import GlobalParametersCard from "../Components/Game/GameView/GlobalParametersCard.svelte";
     import {contexts} from "../apis/Contexts";
     import {onDestroy} from "svelte";
     import GameNav from "../Components/Game/GameNav/GameNav.svelte";

@@ -2,6 +2,7 @@
 @import 'card.css';
 @import 'GlobalParameters.css';
 @import 'tab.css';
+@import 'scroll.css';
 
 @tailwind base;
 @tailwind components;

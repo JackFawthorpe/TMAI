@@ -1,32 +1,40 @@
 <script lang="ts">
-    import SocketConnectionDisplay from "../SocketConnectionDisplay.svelte";
-    import PlayerBrowser from "../PlayerBrowser.svelte";
+    import SocketConnectionDisplay from "./SocketConnectionDisplay.svelte";
+    import PlayerBrowser from "./PlayerBrowser.svelte";
+    import PlayerDeck from "./PlayerDeck.svelte";
+    import type {Player} from "../../../Types/Player";
+    import {playerStore, subscribeToStore} from "../../../apis/Contexts";
+
+    export let connected: boolean;
 
     let currentTab: 'Players' | 'Cards' = 'Players';
 
-    export let connected: boolean;
+    let currentPlayer: Player
+    subscribeToStore(playerStore, (value) => {
+        currentPlayer = value
+    });
 
 </script>
 
 <div class="w-[40%] bg-white flex flex-col justify-between">
-    <div class="tab-nav">
-        {#each ["Players", "Cards"] as tab, index}
-            <div class="tab"
-                 on:click={() => {currentTab = tab}}
-                 class:tab-active={currentTab === tab}>
+    {#if currentPlayer !== null}
+        <div class="tab-nav">
+            {#each ["Players", "Hand"] as tab, index}
+                <div class="tab"
+                     on:click={() => {currentTab = tab}}
+                     class:tab-active={currentTab === tab}>
                 <span class="tab-text">
                     {tab}
                 </span>
-            </div>
-        {/each}
-    </div>
+                </div>
+            {/each}
+        </div>
+    {/if}
     <div class="flex-grow">
         {#if currentTab === 'Players'}
             <PlayerBrowser/>
-        {:else if currentTab === 'cards'}
-            <h3>Test</h3>
         {:else}
-            <h3>Blessed</h3>
+            <PlayerDeck/>
         {/if}
     </div>
     <div>

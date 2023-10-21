@@ -1,6 +1,6 @@
 <script>
 
-    import {SocketAPI} from "../../apis/SocketAPI.ts";
+    import {SocketAPI} from "../../../apis/SocketAPI.ts";
 
     const handleReconnect = () => {
         SocketAPI.connect();

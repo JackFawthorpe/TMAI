@@ -1,8 +1,8 @@
 <script lang="ts">
 
-    import type {Player} from "../../Types/Player";
-    import {API} from "../../apis/API";
-    import {playerStore, subscribeToStore} from "../../apis/Contexts";
+    import type {Player} from "../../../Types/Player";
+    import {API} from "../../../apis/API";
+    import {playerStore, subscribeToStore} from "../../../apis/Contexts";
 
     export let player: Player;
     let currentPlayer: Player;

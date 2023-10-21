@@ -1,6 +1,6 @@
 <script lang="ts">
-    import type {Card} from "../Types/Card";
-    import {TagImage} from "../Types/Card";
+    import type {Card} from "../../Types/Card";
+    import {TagImage} from "../../Types/Card";
 
     export let card: Card;
 </script>
@@ -11,7 +11,7 @@
 
         <!-- Credit Cost -->
         <div class="relative flex-none h-12 w-12">
-            <img src="src/Resources/img/Credit.png" alt="credit"/>
+            <img alt="credit" src="src/Resources/img/Credit.png"/>
             <h1 class="absolute text-2xl text-black font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">{card.cost}</h1>
         </div>
     </div>
