@@ -1,6 +1,8 @@
 package com.backend.MVC;
 
+import com.backend.BLL.CardService;
 import com.backend.BLL.GameplayService;
+import com.backend.BLL.TurnService;
 import com.backend.BLL.WebSocketService;
 import com.backend.Domain.GameState.Game;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,6 +38,12 @@ class GameControllerTest {
 
     @MockBean
     private WebSocketService webSocketService;
+
+    @MockBean
+    private TurnService turnService;
+
+    @MockBean
+    private CardService cardService;
 
     private Game game;
 
