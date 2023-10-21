@@ -3,14 +3,14 @@
     import type {Board} from "../../Types/Board";
     import {CellImage} from "../../Types/Board";
     import type {Game} from "../../Types/Game";
-    import {gameStore, subscribeToStore} from "../../apis/GameStore";
+    import {contexts, subscribeToStore} from "../../apis/Contexts";
 
     let game: Game = null;
-    subscribeToStore(gameStore, (value) => (game = value));
+    subscribeToStore(contexts, (value) => (game = value));
     let board: Board;
 
     $:  board = game?.board;
-    
+
     // Board Constants px
     const CELL_SIZE = 80
     const BOARD_HORZ_SHIFT = CELL_SIZE / 4

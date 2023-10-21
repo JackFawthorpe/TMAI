@@ -7,19 +7,19 @@
     import type {Game} from "../Types/Game";
     import {SocketAPI} from "../apis/SocketAPI";
     import GlobalParametersCard from "../Components/Game/GlobalParametersCard.svelte";
-    import {gameStore} from "../apis/GameStore";
+    import {contexts} from "../apis/Contexts";
     import {onDestroy} from "svelte";
     import GameNav from "../Components/Game/GameNav/GameNav.svelte";
 
     let game: Game = null;
-    const unsubscribe = gameStore.subscribe((value) => game = value);
+    const unsubscribe = contexts.subscribe((value) => game = value);
     onDestroy(unsubscribe);
 
     let connected: boolean;
     const loadGame = async () => {
         try {
             game = await API.getGame();
-            gameStore.set(game);
+            contexts.set(game);
             SocketAPI.onConnect = () => {
                 connected = true
             };
@@ -28,7 +28,7 @@
             };
             SocketAPI.onMessage = (frame) => {
                 console.log('resetting store');
-                gameStore.set(JSON.parse(frame.body));
+                contexts.set(JSON.parse(frame.body));
             }
             SocketAPI.connect();
 

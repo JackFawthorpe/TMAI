@@ -2,14 +2,18 @@
 
     import type {Player} from "../../Types/Player";
     import {API} from "../../apis/API";
+    import {playerStore, subscribeToStore} from "../../apis/Contexts";
 
     export let player: Player;
-    export let currentPlayerContext: {playerId: number, setPlayerId: (id: number) => {}}
+    let currentPlayer: Player;
+    subscribeToStore(playerStore, (value) => {
+        currentPlayer = value
+    });
 
     const handleTakePlayer = async () => {
         isRequesting = true;
         if (await API.takePlayer(player.id)) {
-            currentPlayerContext.setPlayerId(player.id);
+            playerStore.set(player);
         }
         isRequesting = false;
     }
@@ -37,9 +41,9 @@
 
     <!-- Handler Icon -->
     <div class=" p-3 rounded-full absolute top-[15px] left-[15px]"
-        class:bg-green-400={currentPlayerContext.playerId === player.id}
-        class:bg-red-400={currentPlayerContext.playerId !== player.id}>
-        <img src={playerHandlerImageArray[player.human ? 1 : 0]} class="h-6 w-6"/>
+         class:bg-green-400={currentPlayer?.id === player.id}
+         class:bg-red-400={currentPlayer?.id !== player.id}>
+        <img class="h-6 w-6" src={playerHandlerImageArray[player.human ? 1 : 0]}/>
     </div>
 
     <!-- Title -->
@@ -48,7 +52,7 @@
     </div>
 
     <!-- Take user -->
-    {#if !player.human && !isRequesting && currentPlayerContext.playerId === -1}
+    {#if !player.human && !isRequesting && currentPlayer === null}
         <button class="btn btn-primary absolute top-[15px] right-[15px]" on:click={handleTakePlayer}>
             <img src="src/Resources/img/DoubleArrowRight.png" class="h-6 w-6"/>
         </button>

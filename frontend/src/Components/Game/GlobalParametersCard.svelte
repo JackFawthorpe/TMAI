@@ -1,10 +1,10 @@
 <script lang="ts">
     import type {Game, GlobalParameters} from "../../Types/Game";
     import {CellImage} from "../../Types/Board.js";
-    import {gameStore, subscribeToStore} from "../../apis/GameStore";
+    import {contexts, subscribeToStore} from "../../apis/Contexts";
 
     let game: Game = null;
-    subscribeToStore(gameStore, (value) => (game = value));
+    subscribeToStore(contexts, (value) => (game = value));
 
     let params: GlobalParameters = game?.globalParameters;
 
