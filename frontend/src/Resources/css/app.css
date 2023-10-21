@@ -1,6 +1,7 @@
 @import 'btn.css';
 @import 'card.css';
 @import 'GlobalParameters.css';
+@import 'tab.css';
 
 @tailwind base;
 @tailwind components;
