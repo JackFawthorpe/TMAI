@@ -1,11 +1,12 @@
-
-import type {Turn} from "../../Types/Turn";
 import {Client} from "@stomp/stompjs";
+
 let stompClient;
 export const SocketAPI = {
-    onConnect: () => {},
-    onDisconnect: () => {},
-    connect: (debug = false) => {
+    onConnect: () => {
+    },
+    onDisconnect: () => {
+    },
+    connect: () => {
         stompClient = new Client({
             brokerURL: window.location.origin.replace("http", "ws") + "/socket/game/socket",
             onConnect: () => {
@@ -27,9 +28,12 @@ export const SocketAPI = {
                 SocketAPI.onDisconnect();
             }
         })
-
         stompClient.activate();
     },
-    disconnect: () => {stompClient.deactivate();},
-    onMessage: (frame) => {console.log(frame)}
+    disconnect: () => {
+        stompClient.deactivate();
+    },
+    onMessage: (frame) => {
+        console.log(frame)
+    }
 }

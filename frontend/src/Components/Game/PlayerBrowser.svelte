@@ -3,8 +3,12 @@
     import type {Game} from "../../Types/Game";
     import PlayerCard from "./PlayerCard.svelte";
     import type {Player} from "../../Types/Player";
+    import {gameStore, subscribeToStore} from "../../apis/GameStore";
 
-    export let players: Player[];
+    let game: Game = null;
+    subscribeToStore(gameStore, (value) => (game = value));
+    let players: Player[];
+    $: players = game.players;
 
     let currentPlayerContext = {
         playerId: -1,

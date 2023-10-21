@@ -5,23 +5,32 @@
     import {navigate} from "svelte-routing";
     import BoardCard from "../Components/Game/BoardCard.svelte";
     import type {Game} from "../Types/Game";
-    import {SocketAPI} from "../apis/configs/SocketAPI";
+    import {SocketAPI} from "../apis/SocketAPI";
     import GlobalParametersCard from "../Components/Game/GlobalParametersCard.svelte";
-    import SocketConnectionDisplay from "../Components/Game/SocketConnectionDisplay.svelte";
-    import PlayerBrowser from "../Components/Game/PlayerBrowser.svelte";
+    import {gameStore} from "../apis/GameStore";
+    import {onDestroy} from "svelte";
+    import GameNav from "../Components/Game/GameNav/GameNav.svelte";
 
+    let game: Game = null;
+    const unsubscribe = gameStore.subscribe((value) => game = value);
+    onDestroy(unsubscribe);
 
-    let game: Game;
     let connected: boolean;
     const loadGame = async () => {
         try {
             game = await API.getGame();
-            SocketAPI.onConnect = () => {connected = true};
-            SocketAPI.onDisconnect = () => {connected = false};
+            gameStore.set(game);
+            SocketAPI.onConnect = () => {
+                connected = true
+            };
+            SocketAPI.onDisconnect = () => {
+                connected = false
+            };
             SocketAPI.onMessage = (frame) => {
-                game = JSON.parse(frame.body);
+                console.log('resetting store');
+                gameStore.set(JSON.parse(frame.body));
             }
-            SocketAPI.connect(true);
+            SocketAPI.connect();
 
         } catch (e) {
             if (e.response.status === 404) {
@@ -40,15 +49,10 @@
     <Loader/>
 {:then _}
     <div class="container-fluid h-screen flex gap-2 pe-2">
-        <div class="w-[40%] bg-white flex flex-col justify-between">
-            <PlayerBrowser players={game.players}/>
-            <div>
-                <SocketConnectionDisplay connected={connected}/>
-            </div>
-        </div>
+        <GameNav connected={connected}/>
         <div class="w-[60%] m-auto flex flex-col items-center gap-2">
-            <BoardCard board={game.board}/>
-            <GlobalParametersCard params={game.globalParameters}/>
+            <BoardCard/>
+            <GlobalParametersCard/>
         </div>
     </div>
 {:catch error}

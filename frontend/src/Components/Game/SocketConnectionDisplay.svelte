@@ -1,6 +1,6 @@
 <script>
 
-    import {SocketAPI} from "../../apis/configs/SocketAPI";
+    import {SocketAPI} from "../../apis/SocketAPI.ts";
 
     const handleReconnect = () => {
         SocketAPI.connect();
@@ -48,6 +48,7 @@
         display: inline-block;
         margin-right: 10px;
     }
+
     .disconnected {
         background-color: red;
     }
