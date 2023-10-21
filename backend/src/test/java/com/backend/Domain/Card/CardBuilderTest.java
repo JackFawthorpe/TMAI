@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.EnumOptions;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,26 +15,26 @@ class CardBuilderTest {
 
     @BeforeEach
     void resetBuilder() {
-        builder = new CardBuilder("Default Builder");
+        builder = new CardBuilder("Default Builder", -1);
     }
 
     @Test
     void createBuilder_WithTitle_SetsTitle() {
-        CardBuilder builder = new CardBuilder("Test Title");
+        CardBuilder builder = new CardBuilder("Test Title", -1);
         Card result = builder.build();
         assertEquals("Test Title", result.getTitle());
     }
 
     @Test
     void createBuilder_NoTitle_DefaultTitle() {
-        CardBuilder builder = new CardBuilder(null);
+        CardBuilder builder = new CardBuilder(null, -1);
         Card result = builder.build();
         assertEquals("No Title Provided", result.getTitle());
     }
 
     @Test
     void createBuilder_EmptyString_DefaultTitle() {
-        CardBuilder builder = new CardBuilder("");
+        CardBuilder builder = new CardBuilder("", -1);
         Card result = builder.build();
         assertEquals("No Title Provided", result.getTitle());
     }

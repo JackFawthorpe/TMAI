@@ -1,9 +1,16 @@
 package com.backend.MVC;
 
 
+import com.backend.BLL.CardService;
 import com.backend.BLL.GameplayService;
+import com.backend.BLL.TurnService;
 import com.backend.BLL.WebSocketService;
+import com.backend.Domain.Action.Action;
+import com.backend.Domain.Action.PlayCardAction;
+import com.backend.Domain.Card.Card;
 import com.backend.Domain.GameState.Game;
+import com.backend.Domain.GameState.Player.Player;
+import com.backend.MVC.ViewModels.PlayCardViewModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +31,12 @@ public class GameController {
 
     @Autowired
     private GameplayService gameService;
+
+    @Autowired
+    private TurnService turnService;
+
+    @Autowired
+    private CardService cardService;
 
     @Autowired
     private WebSocketService webSocketService;
@@ -73,5 +86,33 @@ public class GameController {
             logger.warn(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+    }
+
+    /**
+     * Given a valid pcvm the card will be played for the given player
+     *
+     * @param pcvm the body of the request (containing the seat index of the player and the card they are playing
+     * @return 400 if the game hasn't started
+     * 403 if the turn isn't currently allowed
+     * 200 if the turn is successfully taken
+     */
+    @PostMapping(value = "/game/playcard", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity playCard(@RequestBody PlayCardViewModel pcvm) {
+        logger.info("POST /game/playcard");
+
+        Game game = Game.getGame();
+        if (game == null) return ResponseEntity.badRequest().body("Game hasn't started");
+
+        Player player = game.getPlayers()[pcvm.getSeatIndex()];
+        Card card = cardService.getCardById(pcvm.getCardID());
+
+        Action action = new PlayCardAction(player, card);
+
+        if (!turnService.canTakeTurn(action)) {
+            return ResponseEntity.status(403).body("This action cannot currently be taken");
+        }
+
+        turnService.takeTurn(action);
+        return ResponseEntity.ok().body("");
     }
 }
