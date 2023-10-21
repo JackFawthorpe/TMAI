@@ -2,7 +2,6 @@ package com.backend.Domain.Action;
 
 import com.backend.Domain.Card.Card;
 import com.backend.Domain.GameState.Player.Player;
-import com.backend.Domain.GameState.Player.PlayerDeck;
 
 /**
  * Action to represent a player playing a card
@@ -20,9 +19,6 @@ public class PlayCardAction extends Action {
         return card;
     }
 
-    public void setCard(Card card) {
-        this.card = card;
-    }
 
     /**
      * Checks if the card can currently be played
@@ -32,8 +28,7 @@ public class PlayCardAction extends Action {
      * @return True if the card can be played by this player
      */
     public boolean canExecute() {
-        PlayerDeck deck = player.getPlayerDeck();
-        return deck.getHand().contains(card);
+        return player.getHand().contains(card);
     }
 
     /**
@@ -44,8 +39,6 @@ public class PlayCardAction extends Action {
      */
     @Override
     public void execute() {
-        PlayerDeck deck = player.getPlayerDeck();
-        deck.getPlayed().add(card);
-        deck.getHand().remove(card);
+        player.playCard(card);
     }
 }

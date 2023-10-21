@@ -108,7 +108,7 @@ public class GameController {
 
         Action action = new PlayCardAction(player, card);
 
-        if (!turnService.canTakeTurn(action)) {
+        if (!turnService.canDoAction(action)) {
             return ResponseEntity.status(403).body("This action cannot currently be taken");
         }
 

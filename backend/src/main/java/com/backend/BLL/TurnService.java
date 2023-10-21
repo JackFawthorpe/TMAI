@@ -24,7 +24,7 @@ public class TurnService {
      * @param action The action to execute
      * @return
      */
-    public boolean canTakeTurn(Action action) {
+    public boolean canDoAction(Action action) {
 
         Game game = Game.getGame();
         if (game == null) return false;
@@ -36,7 +36,7 @@ public class TurnService {
             currentIndex = 0;
             currentPlayer = players[currentIndex];
         }
-        
+
         Player toPlay = action.getPlayer();
         return toPlay == currentPlayer;
     }
@@ -44,7 +44,7 @@ public class TurnService {
     /**
      * Takes the next turn in the game
      * Precondition:
-     * - canTakeTurn has been called
+     * - canDoAction has been called
      *
      * @param action The action to execute
      */
@@ -60,5 +60,9 @@ public class TurnService {
         Player[] players = Game.getGame().getPlayers();
         currentIndex = (currentIndex + 1) % players.length;
         currentPlayer = players[currentIndex];
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
     }
 }
