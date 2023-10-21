@@ -13,7 +13,6 @@ public class Player {
     private final Inventory inventory;
     private final String name;
     private final int id;
-    private boolean isHuman;
     @JsonIgnore
     private PlayerHandler handler;
 
@@ -21,7 +20,6 @@ public class Player {
         this.name = name;
         this.inventory = new Inventory();
         this.handler = new AIPlayerHandler();
-        this.isHuman = false;
         this.id = id;
     }
 
@@ -38,12 +36,11 @@ public class Player {
     }
 
     public void setHandler(PlayerHandler handler) {
-        isHuman = handler instanceof HumanPlayerHandler;
         this.handler = handler;
     }
 
     public boolean isHuman() {
-        return isHuman;
+        return handler instanceof HumanPlayerHandler;
     }
 
     public int getId() {

@@ -2,6 +2,7 @@ package com.backend.MVC;
 
 
 import com.backend.BLL.GameplayService;
+import com.backend.BLL.WebSocketService;
 import com.backend.Domain.GameState.Game;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +26,7 @@ public class GameController {
     private GameplayService gameService;
 
     @Autowired
-    private GameWebSocketController gameWebSocketController;
+    private WebSocketService webSocketService;
 
     /**
      * Endpoint for creating the singleton game
@@ -58,15 +59,15 @@ public class GameController {
     /**
      * Endpoint for letting users join the game
      *
-     * @param playerId The index of player that is going to be controlled
+     * @param seatIndex The index of player that is going to be controlled
      * @return 200 if successfully started to control otherwise 400
      */
     @PostMapping(value = "/game/play", consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity playGame(@RequestBody int playerId) {
+    public ResponseEntity playGame(@RequestBody int seatIndex) {
         logger.info("POST /game/play");
         try {
-            gameService.addHumanPlayer(playerId);
-            gameWebSocketController.pushGame();
+            gameService.addHumanPlayer(seatIndex);
+            webSocketService.pushGame();
             return ResponseEntity.ok().body("");
         } catch (IllegalArgumentException e) {
             logger.warn(e.getMessage());
