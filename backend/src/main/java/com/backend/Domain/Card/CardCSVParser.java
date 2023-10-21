@@ -1,6 +1,6 @@
 package com.backend.Domain.Card;
 
-import com.backend.Domain.Utility.CSVReader;
+import com.backend.BLL.Utility.CSVReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -19,6 +19,7 @@ public class CardCSVParser implements CardDAO {
     private final int TAG_START_COL = 2;
     private final int TAG_END_COL = 12;
     private final CSVReader csvReader;
+    Logger logger = LoggerFactory.getLogger(CardCSVParser.class);
 
     public CardCSVParser() {
         this.csvReader = new CSVReader();
@@ -28,10 +29,9 @@ public class CardCSVParser implements CardDAO {
         this.csvReader = csvReader;
     }
 
-    Logger logger = LoggerFactory.getLogger(CardCSVParser.class);
-
     /**
      * Parses the full CSV and creates a list of cards
+     *
      * @return The list of cards
      */
     @Override
@@ -48,6 +48,7 @@ public class CardCSVParser implements CardDAO {
     /**
      * Takes a CSV of the following format and converts it into a list of cards
      * | Title | Cost | Building | Space | Science | Plant | Microbe | Animal | Power | Jovian | Earth | City | Earth |
+     *
      * @param stringArrays The list of string arrays to parse into Cards (With a header row)
      * @return The list of cards that are created
      */
@@ -67,6 +68,7 @@ public class CardCSVParser implements CardDAO {
      * | Title | Cost | Building | Space | Science | Plant | Microbe | Animal | Power | Jovian | Earth | City | Earth |
      * and turns it into a card entity using {@link CardBuilder}
      * if card fails to build then null will be returned
+     *
      * @param cardDetails The row from the CSV
      * @return The card built
      */
@@ -80,8 +82,8 @@ public class CardCSVParser implements CardDAO {
                 }
             }
             return builder.build();
-        }catch(Exception e){
-            logger.error("error creating card: {}",cardDetails[TITLE_COL]);
+        } catch (Exception e) {
+            logger.error("error creating card: {}", cardDetails[TITLE_COL]);
             return null;
         }
     }

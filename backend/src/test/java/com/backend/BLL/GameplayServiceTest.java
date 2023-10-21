@@ -2,7 +2,7 @@ package com.backend.BLL;
 
 import com.backend.BLL.PlayerManagement.HumanPlayerHandler;
 import com.backend.Domain.GameState.Game;
-import com.backend.Domain.GameState.Player;
+import com.backend.Domain.GameState.Player.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

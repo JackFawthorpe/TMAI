@@ -2,7 +2,8 @@ package com.backend.BLL;
 
 import com.backend.BLL.PlayerManagement.HumanPlayerHandler;
 import com.backend.Domain.GameState.Game;
-import com.backend.Domain.GameState.Player;
+import com.backend.Domain.GameState.Player.Player;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,6 +11,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class GameplayService {
+
+    @Autowired
+    private CardService cardService;
 
     /**
      * Instantiates the game for the website
@@ -23,6 +27,11 @@ public class GameplayService {
         Game game = new Game();
         game.setPlayers(playerNames);
         Game.setGame(game);
+
+        for (Player player : game.getPlayers()) {
+            cardService.drawFromAllCards(5, player.getHand());
+        }
+
         return game;
     }
 

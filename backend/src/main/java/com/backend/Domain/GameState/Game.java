@@ -1,5 +1,8 @@
 package com.backend.Domain.GameState;
 
+import com.backend.Domain.GameState.Board.Board;
+import com.backend.Domain.GameState.Player.Player;
+
 /**
  * Singleton Pattern for data about the current game that is being played
  */

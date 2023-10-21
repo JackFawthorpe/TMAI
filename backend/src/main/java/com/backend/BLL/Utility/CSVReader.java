@@ -1,4 +1,4 @@
-package com.backend.Domain.Utility;
+package com.backend.BLL.Utility;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -12,8 +12,9 @@ public class CSVReader {
 
     /**
      * Reads all lines of the card CSV
+     *
      * @return A list of string array's one for each line of the CSV
-     * @throws IOException When the CSV cannot be read
+     * @throws IOException        When the CSV cannot be read
      * @throws URISyntaxException Invalid URI (Not possible)
      */
     public List<String[]> readAllLines(String filename) throws IOException, URISyntaxException {

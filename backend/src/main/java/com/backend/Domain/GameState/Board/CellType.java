@@ -1,4 +1,4 @@
-package com.backend.Domain.GameState;
+package com.backend.Domain.GameState.Board;
 
 import java.util.Random;
 
