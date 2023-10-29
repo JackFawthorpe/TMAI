@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {Player} from "../../../Types/Player";
-    import {playerStore, subscribeToStore} from "../../../apis/Contexts";
+    import {playerStore, subscribeToStore} from "../../../apis/GameStore";
     import CardCard from "../../Card/CardCard.svelte";
     import type {Card} from "../../../Types/Card";
 
