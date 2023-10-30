@@ -6,7 +6,6 @@
 
     let player: Player = null;
     subscribeToStore(playerStore, (value) => {
-        console.log(player)
         player = value
     });
     let hand: Card[];
@@ -16,6 +15,8 @@
 
 <div class="container-fluid h-full grid grid-cols-2 p-2 gap-2 overflow-y-scroll">
     {#each hand as card}
-        <CardCard card={card}/>
+        <CardCard card={card}>
+            <button class="btn btn-primary">Play Card</button>
+        </CardCard>
     {/each}
 </div>

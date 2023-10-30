@@ -5,3 +5,7 @@
 .btn-primary {
     @apply bg-green-400 text-gray-900;
 }
+
+.btn-primary:hover {
+    @apply bg-green-500;
+}
