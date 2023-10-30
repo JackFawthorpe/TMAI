@@ -35,6 +35,7 @@ public class CardCSVProxy implements CardDAO {
     /**
      * If the cards have been previously loaded it returns the one in
      * memory otherwise it will retrieve the cards from memory
+     *
      * @return The cards being used by application
      */
     @Override
@@ -45,5 +46,14 @@ public class CardCSVProxy implements CardDAO {
 
         cards = csvParser.getAll();
         return cards;
+    }
+
+    @Override
+    public Card getById(int id) {
+        if (cards == null) {
+            cards = csvParser.getAll();
+        }
+
+        return cards.get(id);
     }
 }

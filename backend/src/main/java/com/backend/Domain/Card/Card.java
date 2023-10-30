@@ -10,14 +10,17 @@ public class Card {
 
     private String title;
 
+    private int index;
     private List<Tag> tags = new ArrayList<>();
 
     private int cost = -1;
 
-    public Card() {}
+    public Card() {
+    }
 
-    public Card(String title){
+    public Card(String title, int index) {
         this.title = title;
+        this.index = index;
     }
 
     public int getCost() {
@@ -32,7 +35,9 @@ public class Card {
         return this.title;
     }
 
-    public void setTitle(String title) {this.title = title;}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public List<Tag> getTags() {
         return tags;
@@ -40,5 +45,21 @@ public class Card {
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    @Override
+    public int hashCode() {
+        return index;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (!(o instanceof Card card)) return false;
+        return this.index == card.index;
     }
 }

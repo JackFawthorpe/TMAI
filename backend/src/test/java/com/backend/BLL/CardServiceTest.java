@@ -15,8 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 class CardServiceTest {
@@ -65,5 +64,11 @@ class CardServiceTest {
         List<Card> deck = new ArrayList<>();
         cardService.drawFromAllCards(3, deck);
         assertEquals(3, deck.size());
+    }
+
+    @Test
+    void getCardById_CallsDAO() {
+        cardService.getCardById(1);
+        verify(cardDAO, times(1)).getById(1);
     }
 }

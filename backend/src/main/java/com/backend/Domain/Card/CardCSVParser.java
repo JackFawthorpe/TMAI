@@ -1,6 +1,6 @@
 package com.backend.Domain.Card;
 
-import com.backend.BLL.Utility.CSVReader;
+import com.backend.BLL.Parsing.CSVReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -46,6 +46,24 @@ public class CardCSVParser implements CardDAO {
     }
 
     /**
+     * Generates the list of all cards and return the card that wil have the same id.
+     * Note this shouldn't be called as the proxy should make this function untouched
+     *
+     * @param id The id of the card to fetch
+     * @return The card that matches the id or null if the cards ID doesnt exist
+     */
+    @Override
+    public Card getById(int id) {
+        try {
+            List<String[]> cardStringArrays = csvReader.readAllLines("card.csv");
+            return createCardList(cardStringArrays).get(id);
+        } catch (Exception e) {
+            logger.error("Cards failed to load from CSV: {}", e.getMessage());
+            return null;
+        }
+    }
+
+    /**
      * Takes a CSV of the following format and converts it into a list of cards
      * | Title | Cost | Building | Space | Science | Plant | Microbe | Animal | Power | Jovian | Earth | City | Earth |
      *
@@ -55,7 +73,7 @@ public class CardCSVParser implements CardDAO {
     private List<Card> createCardList(List<String[]> stringArrays) {
         List<Card> cards = new ArrayList<>();
         for (int i = 1; i < stringArrays.size(); i++) {
-            Card card = buildCard(stringArrays.get(i));
+            Card card = buildCard(stringArrays.get(i), i - 1);
             if (card != null) {
                 cards.add(card);
             }
@@ -70,11 +88,12 @@ public class CardCSVParser implements CardDAO {
      * if card fails to build then null will be returned
      *
      * @param cardDetails The row from the CSV
+     * @param index       the index of the card within the csv (0-based)
      * @return The card built
      */
-    private Card buildCard(String[] cardDetails) {
+    private Card buildCard(String[] cardDetails, int index) {
         try {
-            CardBuilder builder = new CardBuilder(cardDetails[TITLE_COL]);
+            CardBuilder builder = new CardBuilder(cardDetails[TITLE_COL], index);
             builder.withCost(cardDetails[COST_COL]);
             for (int i = TAG_START_COL; i <= TAG_END_COL; i++) {
                 if (cardDetails[i].equals("1")) {

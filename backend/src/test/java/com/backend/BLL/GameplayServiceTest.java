@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,6 +18,9 @@ class GameplayServiceTest {
 
     @InjectMocks
     GameplayService gameplayService;
+
+    @Mock
+    private CardService cardService;
 
     @BeforeEach
     void resetMocks() {

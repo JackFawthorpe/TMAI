@@ -3,7 +3,6 @@ package com.backend.Domain.Card;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,21 +10,22 @@ import java.util.List;
  */
 public class CardBuilder {
 
+    private final Card card;
     Logger logger = LoggerFactory.getLogger(CardBuilder.class);
-
-    private Card card;
 
     /**
      * Instantiates the builder thus the card
+     *
      * @param title The title of the card
      */
-    public CardBuilder(String title) {
-        this.card = new Card(title == null || title.equals("") ? "No Title Provided" : title);
+    public CardBuilder(String title, int index) {
+        this.card = new Card(title == null || title.equals("") ? "No Title Provided" : title, index);
     }
 
     /**
      * Parses the string into an integer for the cost of the card
      * If the String doesn't represent a cost it will fall back to -1
+     *
      * @param cost The cost of the card
      * @return the builder
      */
@@ -42,6 +42,7 @@ public class CardBuilder {
     /**
      * Takes a tag and adds it to list of tags for a card
      * If the tag is null then nothing will be added
+     *
      * @param tag The tag to be added to a card
      * @return the builder
      */
@@ -56,9 +57,10 @@ public class CardBuilder {
 
     /**
      * Finalizes the card
+     *
      * @return The card that has been built
      */
     public Card build() {
-        return this.card;
+        return card;
     }
 }

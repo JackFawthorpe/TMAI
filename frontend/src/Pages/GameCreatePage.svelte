@@ -1,6 +1,7 @@
 <script lang="ts">
     import {API} from "../apis/API";
     import {navigate} from "svelte-routing";
+    import {gameStore, resetStores} from "../apis/GameStore";
 
     let playerCount: number = 2;
     let playerNames: string[] = ["", ""];
@@ -22,6 +23,7 @@
 
         try {
             await API.postGame(playerNames);
+            resetStores();
             navigate("/game");
         } catch (e) {
             console.log(e.message);

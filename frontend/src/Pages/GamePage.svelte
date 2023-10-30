@@ -7,47 +7,44 @@
     import type {Game} from "../Types/Game";
     import {SocketAPI} from "../apis/SocketAPI";
     import GlobalParametersCard from "../Components/Game/GameView/GlobalParametersCard.svelte";
-    import {contexts} from "../apis/Contexts";
-    import {onDestroy} from "svelte";
+    import {gameStore} from "../apis/GameStore";
+    import {onDestroy, onMount} from "svelte";
     import GameNav from "../Components/Game/GameNav/GameNav.svelte";
 
     let game: Game = null;
-    const unsubscribe = contexts.subscribe((value) => game = value);
+    const unsubscribe = gameStore.subscribe((value) => game = value);
     onDestroy(unsubscribe);
 
-    let connected: boolean;
-    const loadGame = async () => {
+    let connected: boolean = false;
+
+    onMount(async () => {
         try {
             game = await API.getGame();
-            contexts.set(game);
+            gameStore.set(game);
+
             SocketAPI.onConnect = () => {
-                connected = true
+                connected = true;
             };
             SocketAPI.onDisconnect = () => {
-                connected = false
+                connected = false;
             };
             SocketAPI.onMessage = (frame) => {
-                console.log('resetting store');
-                contexts.set(JSON.parse(frame.body));
-            }
+                gameStore.set(JSON.parse(frame.body));
+            };
             SocketAPI.connect();
-
         } catch (e) {
             if (e.response.status === 404) {
-                navigate("game/create")
+                navigate("game/create");
             } else {
-                throw e
+                throw e;
             }
         }
-    }
-
-    const promise = loadGame();
-
+    });
 </script>
 
-{#await promise}
+{#if game === null}
     <Loader/>
-{:then _}
+{:else}
     <div class="container-fluid h-screen flex gap-2 pe-2">
         <GameNav connected={connected}/>
         <div class="w-[60%] m-auto flex flex-col items-center gap-2">
@@ -55,6 +52,4 @@
             <GlobalParametersCard/>
         </div>
     </div>
-{:catch error}
-    <p style="color: red">{error.message}</p>
-{/await}
+{/if}

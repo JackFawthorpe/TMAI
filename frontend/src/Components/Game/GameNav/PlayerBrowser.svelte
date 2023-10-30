@@ -3,10 +3,10 @@
     import type {Game} from "../../../Types/Game";
     import PlayerCard from "./PlayerCard.svelte";
     import type {Player} from "../../../Types/Player";
-    import {contexts, subscribeToStore} from "../../../apis/Contexts";
+    import {gameStore, subscribeToStore} from "../../../apis/GameStore";
 
     let game: Game = null;
-    subscribeToStore(contexts, (value) => (game = value));
+    subscribeToStore(gameStore, (value) => (game = value));
     let players: Player[];
     $: players = game.players;
 </script>
