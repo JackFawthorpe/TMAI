@@ -3,7 +3,7 @@
     import PlayerBrowser from "./PlayerBrowser.svelte";
     import PlayerDeck from "./PlayerDeck.svelte";
     import type {Player} from "../../../Types/Player";
-    import {playerStore, subscribeToStore} from "../../../apis/Contexts";
+    import {playerStore, subscribeToStore} from "../../../apis/GameStore";
 
     export let connected: boolean;
 

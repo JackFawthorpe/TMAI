@@ -32,4 +32,14 @@ public class PlayerDeck {
     public void setPlayed(ArrayList<Card> played) {
         this.played = played;
     }
+
+    /**
+     * Removes card from hand and adds it to played
+     *
+     * @param card The card
+     */
+    public void playCard(Card card) {
+        hand.remove(card);
+        played.add(card);
+    }
 }
