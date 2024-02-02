@@ -3,6 +3,7 @@
 @import 'GlobalParameters.css';
 @import 'tab.css';
 @import 'scroll.css';
+@import 'playcard.css';
 
 @tailwind base;
 @tailwind components;

@@ -1,6 +1,6 @@
 package com.backend.Domain.Card;
 
-import com.backend.BLL.Utility.CSVReader;
+import com.backend.BLL.Parsing.CSVReader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

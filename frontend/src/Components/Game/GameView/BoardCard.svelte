@@ -3,10 +3,10 @@
     import type {Board} from "../../../Types/Board";
     import {CellImage} from "../../../Types/Board";
     import type {Game} from "../../../Types/Game";
-    import {contexts, subscribeToStore} from "../../../apis/Contexts";
+    import {gameStore, subscribeToStore} from "../../../apis/GameStore";
 
     let game: Game = null;
-    subscribeToStore(contexts, (value) => (game = value));
+    subscribeToStore(gameStore, (value) => (game = value));
     let board: Board;
 
     $:  board = game?.board;

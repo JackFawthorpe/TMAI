@@ -71,4 +71,15 @@ public class Player {
     public List<Card> getHand() {
         return playerDeck.getHand();
     }
+
+    /**
+     * Plays the card
+     * <p>
+     * TODO: Add cost handling
+     *
+     * @param card The card
+     */
+    public void playCard(Card card) {
+        playerDeck.playCard(card);
+    }
 }

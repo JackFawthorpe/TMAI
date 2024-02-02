@@ -28,6 +28,16 @@ public class CardService {
     }
 
     /**
+     * Retrieves the card from the data layer
+     *
+     * @param id The id of the card
+     * @return The card
+     */
+    public Card getCardById(int id) {
+        return cardDAO.getById(id);
+    }
+
+    /**
      * Draws cards to the list provided
      * This is done through shuffling every stored card and taking the first cardCount in the list
      * if the draw count is larger than the full deck it will continually append the list till its enough
